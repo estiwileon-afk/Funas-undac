@@ -1,0 +1,56 @@
+<script setup>
+import { useColorsStore } from '@/stores/colors';
+import { storeToRefs } from 'pinia';
+
+const store = useColorsStore()
+const tema = localStorage.getItem('color' || 'medianoche')
+</script>
+<template>
+    <div class="w-screen h-screen overflow-hidden  z-120 fixed inset-0 flex items-center justify-center gap-4 flex-col-reverse" :class="tema">
+        <p class="text-3xl font-bold text-white" >Cargando...</p>
+        <div class="loader"></div>
+    </div>
+</template>
+
+
+
+<style scoped>
+
+.loader {
+  width: 60px;
+  aspect-ratio: 1;
+  display:grid;
+  mask: conic-gradient(from 15deg,#0000,#000);
+  -webkit-mask: conic-gradient(from 15deg,#0000,#000);
+  animation: l26 1s infinite steps(12);
+}
+.loader,
+.loader:before,
+.loader:after{
+  background:
+    radial-gradient(closest-side at 50% 12.5%,
+     #ffffff 96%,#0000) 50% 0/20% 80% repeat-y,
+    radial-gradient(closest-side at 12.5% 50%,
+     #ffffff 96%,#0000) 0 50%/80% 20% repeat-x;
+}
+.loader:before,
+.loader:after {
+  content: "";
+  grid-area: 1/1;
+  transform: rotate(30deg);
+}
+.loader:after {
+  transform: rotate(60deg);
+}
+
+@keyframes l26 {
+  100% {transform:rotate(1turn)}
+}
+.medianoche{
+  background: linear-gradient(to bottom right, #361a32,#38081a);
+  
+}
+.pastel{
+   background: linear-gradient(to bottom right, #861043,#e94d83);
+}
+</style>
