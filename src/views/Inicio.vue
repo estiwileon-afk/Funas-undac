@@ -10,7 +10,7 @@ import { supabase } from "../../utils/supabase";
 
 const mostrar = ref(false)
 const storeSupabase = useSupabaseStore()
-const publicaciones = ref([])
+const publicaciones = ref([]);
 const hiddeLoader = storeToRefs(storeSupabase).hiddeLoader
 const categoriaActiva = ref('Todos')
 const setColorCategory = (categoria) => {
