@@ -13,7 +13,7 @@ const router = useRouter()
 const store = useColorsStore()
 const supabaseStore = useSupabaseStore()
 const config = ref('custom');
-const theme = ref(localStorage.getItem('color' ||'medianoche'))
+const theme = localStorage.getItem('color' ) || 'medianoche';
 const avatar = storeToRefs(supabaseStore).avatar
 const apodo = storeToRefs(supabaseStore).nickName
 const correo = storeToRefs(supabaseStore).correo
@@ -25,7 +25,6 @@ function setConfig(type) {
 
 const setTheme = (tema)=>{
     localStorage.setItem('color',tema)
-    theme.value = localStorage.getItem('color')
     store.setTheme(tema)
 }
 async function logOut(){

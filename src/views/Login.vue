@@ -155,7 +155,7 @@ function setActive(tipo) {
             }}
           </p>
         </div>
-        <form class="flex flex-col justify-between gap-4 w-full">
+        <form @submit.prevent="active === 'registro' ? registro() : login()" class="flex flex-col justify-between gap-4 w-full">
           <div
             class="flex max-md:flex-col gap-6 max-w-full justify-between max-md:gap-4"
           >
@@ -181,6 +181,7 @@ function setActive(tipo) {
                 </svg>
                 <input
                   v-model="correo"
+                  name="correo"
                   placeholder="ejemplo@null"
                   class="font-semibold text-lg p-3 px-4 border-2 pl-12 border-white/50 bg-white/20 rounded-2xl h-15 focus:outline focus:outline-fuchsia-500 focus:border-fuchsia-500 transition-all duration-100 w-full"
                   id="email"
@@ -190,7 +191,7 @@ function setActive(tipo) {
               </div>
             </div>
             <div
-              v-show="active === 'registro'"
+              v-if="active === 'registro'"
               class="flex flex-col gap-2 w-1/2 max-md:w-full"
             >
               <label for="apodo" class="text-xl font-semibold gap-2"
@@ -217,6 +218,7 @@ function setActive(tipo) {
                 </svg>
                 <input
                   v-model="nickName"
+                  name="nickName"
                   placeholder="Tu apodo..."
                   class="font-semibold text-lg p-3 px-4 border-2 pl-12 border-white/50 bg-white/20 rounded-2xl h-15 focus:outline focus:outline-fuchsia-500 focus:border-fuchsia-500 transition-all duration-100 w-full"
                   id="apodo"
@@ -248,6 +250,7 @@ function setActive(tipo) {
               </svg>
               <input
                 v-model="contraseña"
+                name="contraseña"
                 required=""
                 placeholder="••••••••"
                 class="font-semibold p-3 text-lg px-12 border-2 border-white/50 bg-white/20 rounded-2xl h-15 focus:outline focus:outline-fuchsia-500 focus:border-fuchsia-500 transition-all duration-100"
@@ -300,8 +303,7 @@ function setActive(tipo) {
           </div>
 
           <button
-            type="button"
-            @click="active === 'registro' ? registro() : login()"
+            type="submit"
             class="degradado mt-3 h-15 rounded-2xl text-2xl font-bold cursor-pointer hover:opacity-70 transition-all duration-200 flex items-center justify-center gap-2 group"
           >
             Entrar
