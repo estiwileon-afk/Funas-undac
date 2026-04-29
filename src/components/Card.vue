@@ -103,27 +103,7 @@ onMounted(async () => {
           {{ likeCount }}
         </p>
       </div>
-      <div
-        class="flex gap-2 w-15 items-center transition-all duration-200 ease-out"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="#ffffff"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          class="lucide lucide-message-square-icon lucide-message-square transition-all duration-200 ease-out hover:scale-115 hover:fill-white active:scale-80 cursor-pointer max-md:w-5.5 max-md:h-5.5 max-md:hover:scale-none max-md:hover:fill-none"
-        >
-          <path
-            d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z"
-          />
-        </svg>
-        <p class="mt-0.5 font-semibold text-lg max-md:text-base">0</p>
-      </div>
+      
     </div>
   </div>
 </template>

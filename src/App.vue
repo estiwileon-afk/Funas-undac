@@ -6,7 +6,7 @@ import { onMounted } from "vue";
 import Loader from "./components/Loader.vue";
 
 const store = useColorsStore();
-const tema = storeToRefs(store).colorPage;
+const tema = localStorage.getItem('color' ) || 'medianoche';
 
 const supabaseStore = useSupabaseStore();
 const hiddeLoader = storeToRefs(supabaseStore).hiddeLoader;

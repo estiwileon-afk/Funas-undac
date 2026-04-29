@@ -1,9 +1,7 @@
 <script setup>
 import { useColorsStore } from '@/stores/colors';
-import { storeToRefs } from 'pinia';
 
-const store = useColorsStore()
-const tema = localStorage.getItem('color' || 'medianoche')
+const tema = localStorage.getItem('color' ) || 'medianoche';
 </script>
 <template>
     <div class="w-screen h-screen overflow-hidden  z-120 fixed inset-0 flex items-center justify-center gap-4 flex-col-reverse" :class="tema">
