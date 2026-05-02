@@ -6,7 +6,7 @@ import { onMounted } from "vue";
 import Loader from "./components/Loader.vue";
 
 const store = useColorsStore();
-const tema = localStorage.getItem('color' ) || 'medianoche';
+const { colorPage } = storeToRefs(store);
 
 const supabaseStore = useSupabaseStore();
 const hiddeLoader = storeToRefs(supabaseStore).hiddeLoader;
@@ -19,7 +19,7 @@ onMounted(async () => {
 });
 </script>
 <template>
-  <main class="max-w-screen min-h-dvh" :class="tema">
+  <main class="max-w-screen min-h-dvh" :class="colorPage">
     <router-view />
     <Loader v-if="hiddeLoader" />
   </main>
